@@ -47,10 +47,20 @@ python module libidwarp ! in
          integer(kind=inttype) intent(in) :: ndof
        end subroutine getvolumecoordinates
 
+       subroutine setvolumecoordinates(gridnodes,ndof) ! in setVolumeCoordinates.F90
+         real(kind=realtype) dimension(ndof),intent(in),depend(ndof) :: gridnodes
+         integer(kind=inttype) intent(in) :: ndof
+       end subroutine setvolumecoordinates
+
        subroutine getcommonvolumecoordinates(gridnodes,ndof) ! in getCommonvolumeCoordinates.F90
          real(kind=realtype) dimension(ndof),intent(out),depend(ndof) :: gridnodes
          integer(kind=inttype) intent(in) :: ndof
        end subroutine getcommonvolumecoordinates
+
+       subroutine setcommonvolumecoordinates(gridnodes,ndof) ! in setCommonVolumeCoordinates.F90
+         real(kind=realtype) dimension(ndof),intent(in),depend(ndof) :: gridnodes
+         integer(kind=inttype) intent(in) :: ndof
+       end subroutine setcommonvolumecoordinates
 
        subroutine initializewarping(pts,uniquepts,link,facesizes,faceconn,ndoflocal,nunique,nlink,nfacesizes,nfaceconn,restartfile) ! in :test:initializeWarping.F90
          real(kind=realtype) dimension(ndoflocal),intent(in) :: pts

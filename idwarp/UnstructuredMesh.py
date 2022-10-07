@@ -338,6 +338,11 @@ class USMesh(BaseSolver):
 
         return solverGrid
 
+    def setSolverGrid(self, solverGrid):
+        warpGrid = np.zeros(self.warp.griddata.solvermeshdof, self.dtype)
+        self.warp.solver_to_warp_grid(solverGrid, warpGrid)
+        self.setWarpGrid(warpGrid)
+
     def getWarpGrid(self):
         """
         Return the current grid. This funtion is typically unused. See
@@ -350,6 +355,22 @@ class USMesh(BaseSolver):
             format.
         """
         return self.warp.getvolumecoordinates(self.warp.griddata.warpmeshdof)
+
+    def setWarpGrid(self, warpGrid):
+        """
+        Set the current grid. This funtion is typically unused. See
+        getSolverGrid for the more useful interface functionality.
+
+        Returns
+        -------
+        warpGrid, numpy array, real: The resulting grid.
+            The output is returned in flatted 1D coordinate
+            format.
+        """
+        if np.size(warpGrid) != self.warp.griddata.warpmeshdof:
+            raise Exception("Degrees of freedom of the grid are not the same!" + f"Got {np.size(warpGrid)} vs. expected {self.warp.griddata.warpmeshdof}")
+
+        self.warp.setvolumecoordinates(warpGrid, self.warp.griddata.warpmeshdof)
 
     def getCommonGrid(self):
         """Return the grid in the original ordering. This is required for the

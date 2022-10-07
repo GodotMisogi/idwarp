@@ -21,7 +21,7 @@ all:
 # Generate Python inlude directory
 	 $(eval PYTHON_INCLUDES = $(shell $(PYTHON-CONFIG) --includes))
 	 @echo "#------------------------------------------------------#"
-	 @echo Python Inclue Flags $(PYTHON_INCLUDES)
+	 @echo Python Include Flags $(PYTHON_INCLUDES)
 	 @echo "#------------------------------------------------------#"
 
 # Generate Numpy inlude directory

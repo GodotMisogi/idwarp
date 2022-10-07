@@ -40,7 +40,7 @@ g = open(sys.argv[2] + ".autogen", "w")
 # Write the warning header
 g.write("!" + "#" * 78 + "!" + "\n")
 g.write("!" + " " * 27 + "DO NOT MODIFY THIS FILE!" + " " * 27 + "!" + "\n")
-g.write("!" + " " * 27 + "MODIFY pymissionanalysis.pyf INSTEAD!" + " " * 27 + "!" + "\n")
+g.write("!" + " " * 27 + "MODIFY libidwarp.pyf INSTEAD!" + " " * 27 + "!" + "\n")
 g.write("!" + "#" * 78 + "!" + "\n")
 
 # Start going through the lines:
